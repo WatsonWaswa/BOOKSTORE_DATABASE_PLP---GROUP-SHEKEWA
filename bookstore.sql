@@ -75,6 +75,7 @@ CREATE TABLE book_language (
 );
 
 -- Table: book
+
 CREATE TABLE book (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
