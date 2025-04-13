@@ -148,3 +148,18 @@ CREATE TABLE order_history (
     FOREIGN KEY (order_id) REFERENCES cust_order(order_id),
     FOREIGN KEY (status_id) REFERENCES order_status(order_status_id)
 );
+
+-- Set up user groups and roles
+-- Create an admin user with full privileges
+CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'admin_password';
+GRANT ALL PRIVILEGES ON BookStore.* TO 'admin_user'@'localhost';
+
+-- Create a staff user with limited privileges
+CREATE USER 'staff_user'@'localhost' IDENTIFIED BY 'staff_password';
+GRANT SELECT, INSERT, UPDATE ON BookStore.book TO 'staff_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON BookStore.cust_order TO 'staff_user'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON BookStore.order_line TO 'staff_user'@'localhost';
+
+-- Create a customer user with read-only access
+CREATE USER 'customer_user'@'localhost' IDENTIFIED BY 'customer_password';
+GRANT SELECT ON BookStore.book TO 'customer_user'@'localhost';
