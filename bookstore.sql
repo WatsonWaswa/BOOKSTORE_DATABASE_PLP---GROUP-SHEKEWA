@@ -151,15 +151,15 @@ CREATE TABLE order_history (
 
 -- Set up user groups and roles
 -- Create an admin user with full privileges
-CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'admin_password';
-GRANT ALL PRIVILEGES ON BookStore.* TO 'admin_user'@'localhost';
+CREATE USER 'Watty'@'localhost' IDENTIFIED BY 'admin_password';
+GRANT ALL PRIVILEGES ON BookStore.* TO 'Watty'@'localhost';
 
 -- Create a staff user with limited privileges
-CREATE USER 'staff_user'@'localhost' IDENTIFIED BY 'staff_password';
-GRANT SELECT, INSERT, UPDATE ON BookStore.book TO 'staff_user'@'localhost';
-GRANT SELECT, INSERT, UPDATE ON BookStore.cust_order TO 'staff_user'@'localhost';
-GRANT SELECT, INSERT, UPDATE ON BookStore.order_line TO 'staff_user'@'localhost';
+CREATE USER 'Ken'@'localhost' IDENTIFIED BY 'staff_password';
+GRANT SELECT, INSERT, UPDATE ON book TO 'Ken'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON cust_order TO 'Ken'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON order_line TO 'Ken'@'localhost';
 
 -- Create a customer user with read-only access
-CREATE USER 'customer_user'@'localhost' IDENTIFIED BY 'customer_password';
-GRANT SELECT ON BookStore.book TO 'customer_user'@'localhost';
+CREATE USER 'Shekky'@'localhost' IDENTIFIED BY 'customer_password';
+GRANT SELECT ON book TO 'Shekky'@'localhost';
